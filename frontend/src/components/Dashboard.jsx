@@ -13,6 +13,10 @@ import prismaticosIcon from '../recursos/iconos/prismaticos.png';
 import direccionIcon from '../recursos/iconos/direccion.png';
 import personasIcon from '../recursos/iconos/personas.png';
 import lupaIcon from '../recursos/iconos/lupa.png';
+import documentIcon from '../recursos/iconos/documentacion.png';
+import medicalIcon from '../recursos/iconos/hospital.png';
+import configIcon from '../recursos/iconos/configuracion.png';
+import hometIcon from '../recursos/iconos/home.png';
 
 export default function Dashboard({ user, onSelectBeneficiario, onNavigateProfile }) {
     const [searchQuery, setSearchQuery] = useState('');
@@ -41,7 +45,67 @@ export default function Dashboard({ user, onSelectBeneficiario, onNavigateProfil
 
     return (
         <div className="min-h-screen bg-[#fff8f5] text-[#2d1600] pb-24 font-['Work_Sans']">
-            
+
+            {/* Overlay para el Menú Desplegable */}
+            {isDrawerOpen && (
+                <div 
+                    onClick={() => setIsDrawerOpen(false)}
+                    className="fixed inset-0 bg-black/40 z-[60] transition-opacity duration-300"
+                />
+            )}
+
+            {/* Menú Lateral Desplegable (Drawer) */}
+            <aside className={`fixed left-0 top-0 h-full w-80 bg-[#fff1e7] z-[70] transform ${isDrawerOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-out shadow-2xl rounded-r-3xl flex flex-col py-6 px-4 border-r border-[#c0c9b9]/30`}>
+                <div className="px-2 mb-6">
+                    <div className="flex items-center gap-3 mb-3">
+                        <div className="w-12 h-12 rounded-full border-2 border-[#23661d] bg-[#e6ffdb] flex items-center justify-center font-bold text-[#23661d] text-lg">
+                            SL
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-base text-[#23661d]">Scouter Leader</h3>
+                            <p className="text-xs text-[#41493d]">Grupo Scout Kimün</p>
+                        </div>
+                    </div>
+                    <span className="inline-block px-3 py-1 rounded-full bg-[#92fb7b] text-[#037500] text-[10px] font-bold uppercase tracking-wider">
+                        ADMIN MODE
+                    </span>
+                </div>
+
+                <nav className="flex flex-col gap-1.5">
+                    <button 
+                        onClick={() => setIsDrawerOpen(false)}
+                        className="flex items-center gap-3 px-4 h-12 bg-[#92fb7b] text-[#037500] font-bold rounded-2xl active:opacity-80 transition-all text-left"
+                    >
+                        <img src={hometIcon} alt="Home" className="w-5 h-5 object-contain" />
+                        <span className="text-sm">Home</span>
+                    </button>
+                    <button 
+                        onClick={() => { setIsDrawerOpen(false); alert("Documentos seleccionados"); }}
+                        className="flex items-center gap-3 px-4 h-12 text-[#41493d] hover:bg-[#ffeada] rounded-2xl active:opacity-80 transition-all text-left"
+                    >
+                        <img src={documentIcon} alt="Documentos" className="w-5 h-5 object-contain" />
+                       <span className="text-sm">Documentos</span>
+                    </button>
+                    <button 
+                        onClick={() => { setIsDrawerOpen(false); alert("Alertas de emergencias seleccionadas"); }}
+                        className="flex items-center gap-3 px-4 h-12 text-[#41493d] hover:bg-[#ffeada] rounded-2xl active:opacity-80 transition-all text-left"
+                    >
+                        <img src={medicalIcon} alt="Emergencias" className="w-5 h-5 object-contain" />
+                        <span className="text-sm">Alertas de emergencias</span>
+                    </button>
+                    
+                    <div className="my-3 border-t border-[#c0c9b9]/30"></div>
+
+                    <button 
+                        onClick={() => { setIsDrawerOpen(false); alert("Configuración seleccionada"); }}
+                        className="flex items-center gap-3 px-4 h-12 text-[#41493d] hover:bg-[#ffeada] rounded-2xl active:opacity-80 transition-all text-left"
+                    >
+                        <img src={configIcon} alt="Configuración" className="w-5 h-5 object-contain" />
+                        <span className="text-sm">Configuración</span>
+                    </button>
+                </nav>
+            </aside>
+
             {/* Top Bar */}
             <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-[#fff8f5]/80 shadow-sm flex justify-between items-center h-14 px-4 md:px-8">
                 <button 
