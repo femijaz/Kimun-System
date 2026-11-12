@@ -10,6 +10,7 @@ import peligroIcon from '../recursos/iconos/peligro.png';
 import documentIcon from '../recursos/iconos/documentacion.png';
 import medicalIcon from '../recursos/iconos/hospital.png';
 import datosIcon from '../recursos/iconos/datos.png';
+import expandIcon from '../recursos/iconos/expandir.png';
 
 export default function BeneficiarioDetail({ beneficiario, onBack, onNavigateHome, onNavigateEvents, onNavigateProfile }) {
     const [openAccordion, setOpenAccordion] = useState('ddjj');
@@ -104,7 +105,9 @@ export default function BeneficiarioDetail({ beneficiario, onBack, onNavigateHom
                                         <p className="text-xs text-[#ba1a1a]">Faltante: Autorización de Viaje</p>
                                     </div>
                                 </div>
-                                <span className="material-symbols-outlined">expand_more</span>
+                                <div className="w-10 h-10 rounded-full bg-[#ffdad6]/50 flex items-center justify-center p-2">
+                                    <img src={expandIcon} alt="Expand" className="w-full h-full object-contain" />
+                                </div>  
                             </button>
                             {openAccordion === 'legal' && (
                                 <div className="px-4 pb-4 border-t border-[#c0c9b9]/20 pt-3 text-xs text-[#41493d]">
@@ -128,7 +131,9 @@ export default function BeneficiarioDetail({ beneficiario, onBack, onNavigateHom
                                         <p className="text-xs text-[#874a13]">Vence en 12 días</p>
                                     </div>
                                 </div>
-                                <span className="material-symbols-outlined">expand_more</span>
+                                <div className="w-10 h-10 rounded-full bg-[#ffb781]/30 flex items-center justify-center p-2">
+                                    <img src={expandIcon} alt="Expand" className="w-full h-full object-contain" />
+                                </div>  
                             </button>
                             
                             {openAccordion === 'ddjj' && (

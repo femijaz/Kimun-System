@@ -12,6 +12,8 @@ import medicalIcon from '../recursos/iconos/hospital.png';
 import datosIcon from '../recursos/iconos/datos.png';
 import cloudIcon from '../recursos/iconos/cloud.png';
 import schoolIcon from '../recursos/iconos/school.png';
+import expandIcon from '../recursos/iconos/expandir.png';
+
 
 export default function EducatorProfile({ user, onBack, onNavigateHome, onNavigateEvents }) {
     const [scanning, setScanning] = useState(false);
@@ -90,7 +92,9 @@ export default function EducatorProfile({ user, onBack, onNavigateHome, onNaviga
                                     <p className="text-xs text-[#23661d]">✓ Certificado de Reincidencia / Antecedentes cargado</p>
                                 </div>
                             </div>
-                            <span className="material-symbols-outlined transition-transform group-open:rotate-180 text-[#41493d]">expand_more</span>
+                            <div className="w-10 h-10 rounded-full bg-[#23661d]/10 flex items-center justify-center p-2">
+                                <img src={expandIcon} alt="Expand" className="w-full h-full object-contain" />
+                            </div>
                         </summary>
                         <div className="p-4 pt-0 border-t border-[#c0c9b9]/10 text-sm">
                             <div className="bg-white p-3 rounded-xl flex items-center justify-between border border-[#c0c9b9]/20 mt-3">
@@ -112,7 +116,9 @@ export default function EducatorProfile({ user, onBack, onNavigateHome, onNaviga
                                     <p className="text-xs text-[#23661d]">✓ Ficha Médica de adultos vigente</p>
                                 </div>
                             </div>
-                            <span className="material-symbols-outlined transition-transform group-open:rotate-180 text-[#41493d]">expand_more</span>
+                            <div className="w-10 h-10 rounded-full bg-[#23661d]/10 flex items-center justify-center p-2">
+                                <img src={expandIcon} alt="Expand" className="w-full h-full object-contain" />
+                            </div>
                         </summary>
                         <div className="p-4 pt-0 border-t border-[#c0c9b9]/10 space-y-4">
                             <div className="mt-4 bg-[#854912] text-white rounded-2xl p-4 shadow-md relative overflow-hidden">
@@ -178,7 +184,9 @@ export default function EducatorProfile({ user, onBack, onNavigateHome, onNaviga
                                     <p className="text-xs text-[#41493d]">Seguimiento de formación de adultos</p>
                                 </div>
                             </div>
-                            <span className="material-symbols-outlined transition-transform group-open:rotate-180 text-[#41493d]">expand_more</span>
+                            <div className="w-10 h-10 rounded-full bg-[#23661d]/10 flex items-center justify-center p-2">
+                                <img src={expandIcon} alt="Expand" className="w-full h-full object-contain" />
+                            </div>
                         </summary>
                         <div className="p-4 pt-0 border-t border-[#c0c9b9]/10">
                             <div className="space-y-4 py-2">

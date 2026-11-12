@@ -18,10 +18,11 @@ import medicalIcon from '../recursos/iconos/hospital.png';
 import configIcon from '../recursos/iconos/configuracion.png';
 import hometIcon from '../recursos/iconos/home.png';
 
-export default function Dashboard({ user, onSelectBeneficiario, onNavigateProfile }) {
+export default function Dashboard({ user, onSelectBeneficiario, onSelectBranch, onNavigateProfile, onNavigateEvents }) {
     const [searchQuery, setSearchQuery] = useState('');
     const [beneficiarios, setBeneficiarios] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(true);
 
     useEffect(() => {
         const fetchScouts = async () => {
@@ -109,7 +110,7 @@ export default function Dashboard({ user, onSelectBeneficiario, onNavigateProfil
             {/* Top Bar */}
             <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-[#fff8f5]/80 shadow-sm flex justify-between items-center h-14 px-4 md:px-8">
                 <button 
-                    onClick={() => alert("Próximamente: Menú desplegable")}
+                    onClick={() => setIsDrawerOpen(true)} // <--- Reemplaza el alert por esto
                     className="flex items-center justify-center w-11 h-11 active:scale-95 duration-100 hover:bg-[#ffeada] transition-colors rounded-full"
                 >
                     <img src={menuIcon} alt="Menú" className="w-6 h-6 object-contain" />
@@ -141,7 +142,7 @@ export default function Dashboard({ user, onSelectBeneficiario, onNavigateProfil
                         <div className="w-2 h-8 bg-[#23661d] rounded-full"></div>
                         <h2 className="text-xl font-bold text-[#2d1600]">Gestión de Ramas</h2>
                     </div>
-                    <button className="flex items-center justify-center w-11 h-11 rounded-full bg-[#ffe3cc] active:scale-95 transition-transform hover:shadow-sm">
+                    <button onClick={onNavigateEvents} className="flex items-center justify-center w-11 h-11 rounded-full bg-[#ffe3cc] active:scale-95 transition-transform hover:shadow-sm">
                         <img src={calendarioIcon} alt="Calendario" className="w-6 h-6 object-contain" />
                     </button>
                 </section>
@@ -193,9 +194,11 @@ export default function Dashboard({ user, onSelectBeneficiario, onNavigateProfil
 
                 {/* Bento Grid for Branches */}
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                    
                     {/* Manada */}
-                    <button className="relative flex flex-col justify-between p-5 rounded-2xl bg-[#ffde59] shadow-sm text-left overflow-hidden aspect-[1.5/1] active:scale-95 transition-transform">
+                    <button 
+                        onClick={() => onSelectBranch('Manada')}
+                        className="relative flex flex-col justify-between p-5 rounded-2xl bg-[#ffde59] shadow-sm text-left overflow-hidden aspect-[1.5/1] active:scale-95 transition-transform"
+                    >
                         <div className="absolute -right-2 -top-2 opacity-20">
                             <img src={huellaIcon} alt="Huella Background" className="w-24 h-24 object-contain" />
                         </div>
@@ -207,7 +210,10 @@ export default function Dashboard({ user, onSelectBeneficiario, onNavigateProfil
                     </button>
 
                     {/* Unidad */}
-                    <button className="relative flex flex-col justify-between p-5 rounded-2xl bg-[#7ed957] shadow-sm text-left overflow-hidden aspect-[1.5/1] active:scale-95 transition-transform">
+                    <button 
+                        onClick={() => onSelectBranch('Unidad')}
+                        className="relative flex flex-col justify-between p-5 rounded-2xl bg-[#7ed957] shadow-sm text-left overflow-hidden aspect-[1.5/1] active:scale-95 transition-transform"
+                    >
                         <div className="absolute -right-2 -top-2 opacity-20">
                             <img src={arbolesIcon} alt="Arboles Background" className="w-24 h-24 object-contain" />
                         </div>
@@ -219,7 +225,10 @@ export default function Dashboard({ user, onSelectBeneficiario, onNavigateProfil
                     </button>
 
                     {/* Caminantes */}
-                    <button className="relative flex flex-col justify-between p-5 rounded-2xl bg-[#0cc0df] shadow-sm text-left overflow-hidden aspect-[1.5/1] active:scale-95 transition-transform">
+                    <button 
+                        onClick={() => onSelectBranch('Caminantes')}
+                        className="relative flex flex-col justify-between p-5 rounded-2xl bg-[#0cc0df] shadow-sm text-left overflow-hidden aspect-[1.5/1] active:scale-95 transition-transform"
+                    >
                         <div className="absolute -right-2 -top-2 opacity-20">
                             <img src={prismaticosIcon} alt="Prismáticos Background" className="w-24 h-24 object-contain" />
                         </div>
@@ -231,7 +240,10 @@ export default function Dashboard({ user, onSelectBeneficiario, onNavigateProfil
                     </button>
 
                     {/* Rovers */}
-                    <button className="relative flex flex-col justify-between p-5 rounded-2xl bg-[#ff3131] shadow-sm text-left overflow-hidden aspect-[1.5/1] active:scale-95 transition-transform">
+                    <button 
+                        onClick={() => onSelectBranch('Rovers')}
+                        className="relative flex flex-col justify-between p-5 rounded-2xl bg-[#ff3131] shadow-sm text-left overflow-hidden aspect-[1.5/1] active:scale-95 transition-transform"
+                    >
                         <div className="absolute -right-2 -top-2 opacity-20">
                             <img src={direccionIcon} alt="Dirección Background" className="w-24 h-24 object-contain" />
                         </div>
@@ -244,7 +256,10 @@ export default function Dashboard({ user, onSelectBeneficiario, onNavigateProfil
                 </div>
 
                 {/* Adultos */}
-                <div className="w-full flex items-center justify-between p-4 rounded-2xl bg-[#8c52ff] shadow-sm text-left mb-6 overflow-hidden">
+                <div 
+                    onClick={() => onSelectBranch('Adultos')}
+                    className="w-full flex items-center justify-between p-4 rounded-2xl bg-[#8c52ff] shadow-sm text-left mb-6 overflow-hidden cursor-pointer active:scale-98 transition-all"
+                >
                     <div className="flex items-center gap-4">
                         <img src={personasIcon} alt="Adultos" className="w-8 h-8 object-contain" />
                         <div>
@@ -276,9 +291,9 @@ export default function Dashboard({ user, onSelectBeneficiario, onNavigateProfil
                     <img src={hogarIcon} alt="Inicio" className="w-6 h-6 object-contain" />
                     <span className="text-[12px] font-medium mt-0.5">Home</span>
                 </button>
-                <button className="flex flex-col items-center justify-center text-[#41493d] active:scale-95 transition-transform px-6">
+                <button onClick={onNavigateEvents} className="flex flex-col items-center justify-center text-[#41493d] px-6">
                     <img src={calendarioIcon} alt="Eventos" className="w-6 h-6 object-contain" />
-                    <span className="text-[12px] font-medium mt-0.5">Eventos</span>
+                    <span className="text-[10px] font-medium">Eventos</span>
                 </button>
                 <button 
                     onClick={onNavigateProfile}
