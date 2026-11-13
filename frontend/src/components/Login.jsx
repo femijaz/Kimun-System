@@ -50,7 +50,7 @@ export default function Login({ onLoginSuccess }) {
                             value={documento} 
                             onChange={(e) => setDocumento(e.target.value)}
                             className="w-full px-4 py-3 bg-[#fff8f5] border border-[#c0c9b9]/40 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#23661d] text-[#2d1600]"
-                            placeholder="Ej: 28.452.910"
+                            placeholder="Ej: 28452910"
                             required 
                         />
                     </div>

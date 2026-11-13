@@ -14,12 +14,27 @@ export const loginUsuario = async (documento, contrasena) => {
 };
 
 // Función para obtener la lista de beneficiarios (scouts) filtrados por rama o búsqueda
-export const getBeneficiarios = async (rama = "", search = "") => {
-    let url = `${API_URL}/beneficiarios?`;
-    if (rama) url += `rama=${rama}&`;
-    if (search) url += `search=${search}`;
-    
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Error al obtener los beneficiarios");
+export const getBeneficiarios = async (rama = "", q = "", skip = 0, limit = 10) => {
+    const params = new URLSearchParams({ rama, q, skip, limit });
+    const response = await fetch(`${API_URL}/beneficiarios?${params}`);
+    if (!response.ok) throw new Error("Error al obtener beneficiarios");
+    return response.json();
+};
+
+export const crearBeneficiario = async (data) => {
+    const response = await fetch(`${API_URL}/beneficiarios`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+    });
+    if (!response.ok) throw new Error("Error al crear beneficiario");
+    return response.json();
+};
+
+export const eliminarBeneficiarioLogico = async (id) => {
+    const response = await fetch(`${API_URL}/beneficiarios/${id}`, {
+        method: "DELETE",
+    });
+    if (!response.ok) throw new Error("Error al dar de baja al beneficiario");
     return response.json();
 };
