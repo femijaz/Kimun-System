@@ -22,7 +22,7 @@ export default function Dashboard({ user, onSelectBeneficiario, onSelectBranch, 
     const [searchQuery, setSearchQuery] = useState('');
     const [beneficiarios, setBeneficiarios] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [isDrawerOpen, setIsDrawerOpen] = useState(true);
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     useEffect(() => {
         const fetchScouts = async () => {
