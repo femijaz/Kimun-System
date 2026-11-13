@@ -15,7 +15,7 @@ import schoolIcon from '../recursos/iconos/school.png';
 import expandIcon from '../recursos/iconos/expandir.png';
 
 
-export default function EducatorProfile({ user, onBack, onNavigateHome, onNavigateEvents }) {
+export default function EducatorProfile({ user, onBack, onNavigateHome, onNavigatePrograma }) {
     const [scanning, setScanning] = useState(false);
     const [aiExtracted, setAiExtracted] = useState(false);
 
@@ -204,18 +204,18 @@ export default function EducatorProfile({ user, onBack, onNavigateHome, onNaviga
             </main>
 
             {/* Global Footer Navigation */}
-            <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-[#ffeada] rounded-t-2xl shadow-lg border-t border-[#c0c9b9]/20 h-16">
-                <button onClick={onNavigateHome} className="flex flex-col items-center justify-center text-[#41493d] px-6">
-                    <img src={hogarIcon} alt="Home" className="w-6 h-6 object-contain" />
-                    <span className="text-[10px] font-medium">Home</span>
+           <nav className="fixed bottom-0 w-full z-50 bg-[#ffeada]/90 flex justify-around items-center h-16 border-t border-[#c0c9b9]/20">
+                <button onClick={onNavigateHome} className="flex flex-col items-center text-[#41493d] px-4">
+                    <img src={hogarIcon} alt="Home" className="w-5 h-5" />
+                    <span className="text-[10px]">Home</span>
                 </button>
-                <button onClick={onNavigateEvents} className="flex flex-col items-center justify-center text-[#41493d] px-6">
-                    <img src={calendarioIcon} alt="Eventos" className="w-6 h-6 object-contain" />
-                    <span className="text-[10px] font-medium">Eventos</span>
+                <button onClick={onNavigatePrograma} className="flex flex-col items-center text-[#41493d] px-4">
+                    <img src={calendarioIcon} alt="Programa" className="w-5 h-5" />
+                    <span className="text-[10px]">Programa</span>
                 </button>
-                <button className="flex flex-col items-center justify-center text-[#23661d] px-6 relative">
-                    <img src={perfilIcon} alt="Perfil" className="w-6 h-6 object-contain" />
-                    <span className="text-[10px] font-bold">Mi perfil</span>
+                <button className="flex flex-col items-center text-[#41493d] px-4">
+                    <img src={perfilIcon} alt="Perfil" className="w-5 h-5" />
+                    <span className="text-[10px]">Perfil</span>
                 </button>
             </nav>
         </div>

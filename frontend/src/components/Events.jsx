@@ -104,7 +104,7 @@ export default function Events({ onNavigateHome, onNavigateProfile, onBack }) {
                 </button>
                 <button className="flex flex-col items-center justify-center text-[#3d8034] active:scale-95 transition-transform px-6">
                     <img src={calendarioIcon} alt="Eventos" className="w-6 h-6 object-contain" />
-                    <span className="text-[12px] font-bold mt-0.5">Eventos</span>
+                    <span className="text-[12px] font-bold mt-0.5">Programa</span>
                 </button>
                 <button 
                     onClick={onNavigateProfile}

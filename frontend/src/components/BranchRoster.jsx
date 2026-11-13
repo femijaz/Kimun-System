@@ -8,7 +8,7 @@ import perfilIcon from '../recursos/iconos/perfil.png';
 import atrasIcon from '../recursos/iconos/flecha.png';
 import seleccionIcon from '../recursos/iconos/flechita.png';
 
-export default function BranchRoster({ rama, onBack, onSelectBeneficiario, onNavigateEvents, onNavigateProfile }) {
+export default function BranchRoster({ rama, onBack, onSelectBeneficiario, onNavigatePrograma, onNavigateProfile }) {
     const [scouts, setScouts] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -90,18 +90,18 @@ export default function BranchRoster({ rama, onBack, onSelectBeneficiario, onNav
             </main>
 
             {/* Bottom Navigation Bar */}
-            <nav className="fixed bottom-0 w-full z-50 rounded-t-2xl backdrop-blur-md bg-[#ffeada]/90 shadow-[0px_-4px_12px_rgba(133,73,18,0.05)] flex justify-around items-center h-16 border-t border-[#c0c9b9]/20">
-                <button onClick={onBack} className="flex flex-col items-center justify-center text-[#3d8034] px-6">
-                    <img src={hogarIcon} alt="Home" className="w-6 h-6 object-contain" />
-                    <span className="text-[12px] font-medium mt-0.5">Home</span>
+            <nav className="fixed bottom-0 w-full z-50 bg-[#ffeada]/90 flex justify-around items-center h-16 border-t border-[#c0c9b9]/20">
+                <button onClick={onBack} className="flex flex-col items-center text-[#41493d] px-4">
+                    <img src={hogarIcon} alt="Home" className="w-5 h-5" />
+                    <span className="text-[10px]">Home</span>
                 </button>
-                <button onClick={onNavigateEvents} className="flex flex-col items-center justify-center text-[#41493d] px-6">
-                    <img src={calendarioIcon} alt="Eventos" className="w-6 h-6 object-contain" />
-                    <span className="text-[12px] font-medium mt-0.5">Eventos</span>
+                <button onClick={onNavigatePrograma} className="flex flex-col items-center text-[#41493d] px-4">
+                    <img src={calendarioIcon} alt="Programa" className="w-5 h-5" />
+                    <span className="text-[10px]">Programa</span>
                 </button>
-                <button onClick={onNavigateProfile} className="flex flex-col items-center justify-center text-[#41493d] px-6">
-                    <img src={perfilIcon} alt="Perfil" className="w-6 h-6 object-contain" />
-                    <span className="text-[12px] font-medium mt-0.5">Mi perfil</span>
+                <button onClick={onNavigateProfile} className="flex flex-col items-center text-[#41493d] px-4">
+                    <img src={perfilIcon} alt="Perfil" className="w-5 h-5" />
+                    <span className="text-[10px]">Perfil</span>
                 </button>
             </nav>
         </div>
