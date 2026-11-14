@@ -9,8 +9,15 @@ DATABASE_URL = os.getenv(
     "pegar url de conexion de neon"
 )
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(
+    DATABASE_URL, 
+    pool_pre_ping=True,  # <--- Esto detecta conexiones caídas y las reabre solo
+    pool_recycle=300     # <--- Recicla las conexiones cada 5 minutos
+)
+
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
 Base = declarative_base()
 
 def get_db():
