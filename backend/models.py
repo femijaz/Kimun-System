@@ -23,8 +23,8 @@ class Usuario(Base):
     __tablename__ = "usuarios"
 
     id = Column(Integer, primary_key=True, index=True)
-    documento = Column(String(20), nullable=False)
-    contrasena = Column(String(255), nullable=False)
+    documento = Column(String(20), unique=True, index=True)
+    contrasena = Column(String(255))
     rol = Column(String(30), nullable=False)  # Ej: Dirigente, Admin
 
     persona_id = Column(Integer, ForeignKey("personas.id"), unique=True)
