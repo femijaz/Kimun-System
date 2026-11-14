@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000/api";
+const API_URL = "https://kimun-system.onrender.com//api";
 
 // Función para iniciar sesión con el documento y contraseña del dirigente
 export const loginUsuario = async (documento, contrasena) => {
